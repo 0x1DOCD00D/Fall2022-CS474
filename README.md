@@ -1,2 +1,2 @@
 # Fall2022-CS474
-OOLE
+Working examples for CS474 taught by Prof. Grechanik at UIC

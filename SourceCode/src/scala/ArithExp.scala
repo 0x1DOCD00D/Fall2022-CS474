@@ -20,7 +20,7 @@ object ArithExp:
     val EnvironmentTable: Map[String, Int] = Map("Tam" -> 1, "Xiao"->2)
 
     def eval: Int = this match
-      case Variables(name) => EnvironmentTable.get(name).getOrElse(throw new Exception(name))
+      case Variables(name) => EnvironmentTable.getOrElse(name, throw new Exception(name))
       case Value(x) => x
       case Add(o1, o2) => o1.eval + o2.eval
       case Mult(o1, o2) => o1.eval * o2.eval

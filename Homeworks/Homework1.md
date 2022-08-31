@@ -12,7 +12,7 @@ Next, if you haven't done so, you will install [IntelliJ](https://www.jetbrains.
 I recommend using [the fifth edition of the book on Programming in Scala by Martin Odersky and Lex Spoon et al](https://www.artima.com/shop/programming_in_scala_5ed). There are many other books and resources available on the Internet to learn Scala. Those who know more about functional programming can use the book on Functional Programming in Scala published on Sep 14, 2014 by Paul Chiusano and Runar Bjarnason and it is available using your academic subscription on [SafariBooksOnline](https://learning.oreilly.com/home/).
 
 ## Overview
-In class I created and shared with you a simple arithmetic expression evaluation language embedded in Scala for multiplication and addition that uses a statically defined environment to specify values for variables. In this homework, you will create a similar language for boolean functions and you will add expressions for storing results of some computations in variables and using them in different scopes. In addition, you will add macros that will expand macro definitions in the expressions where the macro names are used.
+In class I created and shared with you a simple arithmetic expression evaluation language embedded in Scala for multiplication and addition that uses a statically defined environment to specify values for variables. In this homework, you will create a similar language for boolean functions and you will add expressions for storing results of some computations in variables and using them in different scopes.
 
 You will implement the following basic logic gates for this homework.
 - NOT, negation or complement - which receives one input and returns true when that input is false ("not");

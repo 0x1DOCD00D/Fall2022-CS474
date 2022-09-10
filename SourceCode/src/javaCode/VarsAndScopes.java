@@ -11,11 +11,19 @@ package javaCode;/*
 public class VarsAndScopes {
     public static int i  = 10;
     public int j = 1000;
-    static {
+     {
         int i = 3;
         if( i == 3) {
             {
+                int k = 59;
+                i = 20;
+                class lc{
+                    void f(){
+                        System.out.println(j);
+                    }
+                }
                 i = 5;
+                new lc().f();
 //                j = 2000;
 //                System.out.println(j);
             }

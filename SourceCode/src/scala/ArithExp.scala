@@ -16,8 +16,9 @@ object ArithExp:
     case Variables(name:String)
     case Add(o1: ArithmeticExpression, o2: ArithmeticExpression)
     case Mult(o1: ArithmeticExpression, o2: ArithmeticExpression)
+    case Scope(name: String, expressions: List[ArithmeticExpression])
 
-    val EnvironmentTable: Map[String, Int] = Map("Tam" -> 1, "Xiao"->2)
+    val EnvironmentTable: Map[String, Int] = Map("Karan" -> 1, "Xiao"->2)
 
     def eval: Int = this match
       case Variables(name) => EnvironmentTable.getOrElse(name, throw new Exception(name))
@@ -27,5 +28,6 @@ object ArithExp:
 
   @main def runArithExp =
     import ArithmeticExpression.*
+//    Scope("o1", List(Scope("o2", Scope("o3"), Add(Value(1), Value(2)))))
 //    Add(Add(Add(...)))
     println(Add(Add(Value(1), Variables("Tam")), Add(Value(1), Value(2))))

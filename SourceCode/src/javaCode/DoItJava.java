@@ -9,7 +9,23 @@ package javaCode;/*
  */
 
 public class DoItJava {
+    class Car{
+        class Engine{}
+        class Breaks {}
+        Engine e;
+        Breaks b;
+    }
+
     public static void main(String[] args) {
-        System.out.println("java works!");
+        new DoItJava().new Car();
+        int i = 3;
+        class myclass{
+            private int i = 5;
+            public int f(){
+                return i;
+            }
+        }
+//        void f(){}
+        System.out.println(new myclass().f());
     }
 }

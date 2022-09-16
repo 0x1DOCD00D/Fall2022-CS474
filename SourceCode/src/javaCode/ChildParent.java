@@ -7,25 +7,14 @@ package javaCode;/*
  *   either express or implied.  See the License for the specific language governing permissions and limitations under the License.
  *
  */
-
-public class DoItJava {
-    class Car{
-        class Engine{}
-        class Breaks {}
-        Engine e;
-        Breaks b;
-    }
-
+class Parent{
+    public int i = 5;
+}
+public class ChildParent extends Parent {
+    public int i = 6;
+    public String f() {return "474";}
     public static void main(String[] args) {
-        new DoItJava().new Car();
-        int i = 3_000;
-        class myclass{
-            private int i = 5;
-            public int f(){
-                return i;
-            }
-        }
-//        void f(){}
-        System.out.println(new myclass().f());
+        Parent o = new ChildParent();
+        System.out.println(((ChildParent)o).f());
     }
 }

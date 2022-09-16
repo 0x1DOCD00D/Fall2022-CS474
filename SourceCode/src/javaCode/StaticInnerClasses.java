@@ -28,13 +28,14 @@ public class StaticInnerClasses {
         }
     }
     public static void main(String[] args) {
-        X o1 = new StaticInnerClasses().new X();
+        new StaticInnerClasses();
+        StaticInnerClasses.X o1 = new StaticInnerClasses().new X();
         System.out.println(o1.i);
         S o2 = new StaticInnerClasses.S();
         System.out.println(o2.i);
         S.S1 o3 = new StaticInnerClasses.S.S1();
         System.out.println(o3.i);
-        S.S1.S2 o4 = new StaticInnerClasses.S.S1.S2();
+        StaticInnerClasses.S.S1.S2 o4 = new StaticInnerClasses.S.S1.S2();
         System.out.println(o4.i);
         S.S1.S2.Y o5 = new StaticInnerClasses.S.S1.S2().new Y();
         System.out.println(o5.i);

@@ -8,8 +8,6 @@ package javaCode;/*
  *
  */
 
-import scala.io.StdIn;
-
 class Energy{
     public Energy(int i){}
 }

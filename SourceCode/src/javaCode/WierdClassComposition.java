@@ -24,7 +24,7 @@ public class WierdClassComposition {
         void justPrintIt() {System.out.println("Derived " + String.valueOf(y));}
     }
     public static void main(String[] args) {
-        WierdClassComposition o = new WierdClassComposition.Derived();
+        WierdClassComposition.Derived o = new WierdClassComposition.Derived();
         System.out.println(o.y);
     }
 }

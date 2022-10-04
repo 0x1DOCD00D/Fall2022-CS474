@@ -36,12 +36,13 @@ class Oval extends Shape {
         return 3;
     }
 }
+class Square extends Rectangle{}
 
 class RunShape {
     public static void main(String[] args) {
         //read the input
-        Shape [] aos = {new Cirle(), new Cirle(), new Oval(), new Rectangle()};
-        for (int i = 0; i < 3; i++){
+        Shape [] aos = {new Cirle(), new Cirle(), new Oval(), new Rectangle(), new Square()};
+        for (int i = 0; i < 5; i++){
             System.out.println(aos[i].area());
         }
 

@@ -7,20 +7,31 @@ package javaCode;/*
  *   either express or implied.  See the License for the specific language governing permissions and limitations under the License.
  *
  */
-class Parent{
-    public int i = 5;
+
+class A {
+    /*void f() {
+        System.out.println("A");
+    }*/
 }
 
-class Grandpa{}
-public class ChildParent extends Parent {
-    public int i = 6;
-    public String f() {return "474";}
+class B extends A {
+/*    void f() {
+        System.out.println("B");
+    }*/
+}
+
+
+class C extends B {
+    void f() {
+        System.out.println("C");
+    }
 
     public static void main(String[] args) {
-        ChildParent cp = new ChildParent();
-        Parent p = new ChildParent();
-//        cp = (Grandpa) p;
-        Parent o = new ChildParent();
-        System.out.println(((ChildParent)o).f());
+        B [] ao = {new C(), new C(), new C(), new C()};
+//        ao[1].f();
+        B o = new C();
+//        o.f();
+        new C().f();
     }
 }
+

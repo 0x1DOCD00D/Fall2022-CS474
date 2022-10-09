@@ -37,6 +37,8 @@ class Oval extends Shape {
     public int area() {
         return 3;
     }
+
+    public void f(){}
 }
 class Square extends Rectangle{}
 
@@ -71,6 +73,7 @@ class RunShape {
 //        Shape [] aos = {new Cirle(), new Cirle(), new Oval(), new Rectangle(), new Square()};
         for (int i = 0; i < 5; i++){
             System.out.println(aos[i].area());
+            ((Oval)aos[i]).f();
         }
 
     }

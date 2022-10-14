@@ -41,7 +41,7 @@ public class DefaultOverride implements ParentWithDefault, ParentWithDefault1, S
 
     @Override
     public void abhinav() {
-        super.simple();
+//        super.simple();
         System.out.println("feeling groovy");
     }
 

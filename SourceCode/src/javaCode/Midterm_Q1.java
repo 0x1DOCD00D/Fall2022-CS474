@@ -1,3 +1,5 @@
+package javaCode;
+
 public class Midterm_Q1 {
     abstract static class Human {
         void luvz(){
@@ -28,7 +30,7 @@ public class Midterm_Q1 {
 //        r.luvz();                               //line 2
         r.killz();                              //line 3
         r.protects();                           //line 4
-//        Terminator t = new Midterm_Q1.Robot();  //line 5
+//        Terminator t = new javaCode.Midterm_Q1.Robot();  //line 5
 //        t.killz();                              //line 6
         Terminator schwarz = (Terminator)r;     //line 7
         schwarz.luvz();                         //line 6

@@ -16,6 +16,8 @@ object OurFirstLambdaz:
 
   def hof1(f: Function1[Int, Int], i:Int): Int = f(i)
   def hof2(f: Int => Int, i:Int): Int = f(i)
+  def rhof(f1: Int=>Int, f2:Int=>Int): Int=>Int =
+    (i:Int) => f2(f1(i))
 
   @main def runLambdazz =
     val o = new Xiao:
@@ -33,4 +35,5 @@ object OurFirstLambdaz:
     println(xiao.m(3))
     println(((i:Int) => i+1)(3))
     println(hof1((i:Int) => i+1,2)==hof2((i:Int) => i+1,2))
+    println(rhof((i:Int)=>i+2, (i:Int)=>i-1)(5))
 

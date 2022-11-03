@@ -11,11 +11,24 @@ package scala
  */
 
 object OurFirstLambdaz:
+  case class Student(uid: String)
+  def hs(i: Int):String = i.toString
+
+  val h1: Int =>String = (i: Int)=>hs(i)
+  val h2: Int =>String = hs
+  val g: String => Student = (uid: String)=>Student(uid)
+  val applyingH2toG = (i: Int) => g(h2(i))
+  println(applyingH2toG(1))
+
   val j = 2
   trait Xiao:
     def m(i: Int): Int
 
-  def appMeth2Itself(f:Int=>Int):Int
+  def appMeth2Itself[T](f:T=>T):T => T = (i:T)=>f(i)
+
+  val compMet2Itself = appMeth2Itself(appMeth2Itself(appMeth2Itself(appMeth2Itself)))
+  println(s"[$compMet2Itself]")
+//  println(s"[${compMet2Itself((i:Int)=>i+1)}]")
   def hof1(f: Function1[Int, Int], i:Int): Int = f(i)
   def hof2(f: Int => Int, i:Int): Int = f(i)
   def retFhof(f1: Int=>Int, f2:Int=>Int): Int=>Int =

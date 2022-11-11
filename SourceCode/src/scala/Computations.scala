@@ -22,6 +22,22 @@ object Computations:
   val performVaxxProf: Vaccinate[Int, Professor] = (i:Professor) => (10, new Professor {})
   val approval: Approve[String] = (i:(String, Student))=> if i(0).trim == "Vaccinated!" then true else false
 
+  class Cond:
+    def IF(block : => Boolean): Cond =
+      block
+      this
+
+    def THEN(block : => Unit): Cond =
+      block
+      this
+
   @main def runCompp =
+    val `compare thing my way!! mwaaahaaa!!!` = new Cond
+    `compare thing my way!! mwaaahaaa!!!`.IF{
+      1 == 1
+    } THEN {
+      println("the end!")
+    }
+
     println(approval(performVaxxStd(new Student {})))
 

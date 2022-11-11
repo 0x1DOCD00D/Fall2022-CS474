@@ -22,7 +22,7 @@ class CC implements In2 {
         System.out.println("g is called");
     }
 }
-public class RawStuff<T extends Number & In1 & In2> implements I2 {
+public class RawStuff<T extends In2> implements I2 {
     T field;
     public RawStuff(T f){field = f;}
 

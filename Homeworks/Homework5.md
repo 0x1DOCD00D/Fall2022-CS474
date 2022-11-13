@@ -3,7 +3,7 @@
 ### Grade: 10%
 
 ## Preliminaries
-In the previous homework assignments you gained experience with creating and managing your Git repository and implementing your first *domain-specific language (DSL)* using Scala for writing and evaluating set operation expressions for designers of boolean logic devices using variables and scopes where elements of the sets can be objects of any type. You learned how to create [Scalatest](https://www.scalatest.org/) tests to test your implementation and to create build scripts using [SBT to build and run scripts](https://www.scala-sbt.org/) for your DSL project.
+In the previous homework assignments you gained experience with creating and managing your Git repository and implementing your first *domain-specific language (DSL)* using Scala for writing and evaluating expressions for designers of boolean logic devices using variables and scopes. You learned how to create [Scalatest](https://www.scalatest.org/) tests to test your implementation and to create build scripts using [SBT to build and run scripts](https://www.scala-sbt.org/) for your DSL project.
 
 In this homework you will gain experience with using [partial evaluation](https://www.cs.utexas.edu/~wcook/tutorial/PEnotes.pdf) and optimization of the expressions written in your DSL. First things first, if you haven't done so, you must create your account at [Github](https://github.com), a Git repo management system. Then invite me, your course instructor and your TA as your collaborators. Please avoid using emails from your other accounts like funnybunny2000@gmail.com and use the corresponding channels on Teams instead. You will always receive a response within 12 hours at most and in reality the response time is within 30 minutes on average.
 
@@ -45,12 +45,12 @@ IF(Value(1) GreaterThan Variable("y")) {
 end IF
 ```
 
-Next, you will implement the monadic function **map** for the type Expression that represents your core data type for set theory operations. Consider a program in your DSL as a container of expressions. The function **map** is applied to a container of the DSL expressions and they take functions as their parameters. The parameter functions are optimization transformers that rewrite the program into a simpler programs by applying specific transformations. For example, an example of a simple transformation is rewriting expression **Multiply(Variable("y"), Value(1))** into a simpler expression **Variable("y")**. That is, each optimizing transformer function is similar to the method **eval** that your have already implemented, except it is designed for a specific transformation. This way it is possible to create programs that will apply optimizing transformers to programs written in your DSL by creating more sophisticated transformers without changing the implementation of your DSL.
+Next, you will implement the monadic function **map** for the type Expression that represents your core data type for boolean logic operations. Consider a program in your DSL as a container of expressions. The function **map** is applied to a container of the DSL expressions and they take functions as their parameters. The parameter functions are optimization transformers that rewrite the program into a simpler programs by applying specific transformations. For example, an example of a simple transformation is rewriting expression **Multiply(Variable("y"), Value(1))** into a simpler expression **Variable("y")**. That is, each optimizing transformer function is similar to the method **eval** that your have already implemented, except it is designed for a specific transformation. This way it is possible to create programs that will apply optimizing transformers to programs written in your DSL by creating more sophisticated transformers without changing the implementation of your DSL.
 
 The signatures of the the monadic function **map** is the same that we studied in the class. The function **map** takes a function that is applied to each element in the container, i.e., each expression in your program to produce a resulting expression:
 ```scala
-trait SetExpression:
-  def map(f: SetExpression => SetExpression): SetExpression
+trait BoolLogicExpression:
+  def map(f: BoolLogicExpression => BoolLogicExpression): BoolLogicExpression
 ```
 Of course, this implementation can be generalized by using the parametric polymorphism, but it is not required for this homework. Please note that it is an example and not a strict guide to your implementation. You are free to experiment to choose signatures of the data types that you like as long as you explain your rationale in your documentation.
 

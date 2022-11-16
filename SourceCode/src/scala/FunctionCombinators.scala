@@ -14,12 +14,14 @@ object FunctionCombinators:
   def andThen4Abhinav(f1:Int=>Int)(f2:Int=>String):Int=>String = (i:Int)=>f2(f1(i))
   def andThen4AbhinavGeneral[T,S,R](f1:T=>S)(f2:S=>R):T=>R = (i:T)=>f2(f1(i))
 
+  def unit[T](p:T):WrapperUnit[T] = WrapperUnit(p)
+
   case class WrapperUnit[T](p1:T):
-    def unit(p:T):WrapperUnit[T] = WrapperUnit(p)
     def map[S](f:T=>S):WrapperUnit[S] = WrapperUnit(f(p1))
 
 //  case class WrapperUnit[T,S](p1:T, p2:S)
   println(WrapperUnit("Punit_Unit"))
+  println(unit("Mark").map((i:String)=>i.length))
 
 // f: T=>S and g: S=>R
   val finc: Int=>Int = (p:Int)=> p+1

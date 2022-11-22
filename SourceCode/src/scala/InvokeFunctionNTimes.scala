@@ -26,6 +26,13 @@ object InvokeFunctionNTimes:
     else
       (i:Int)=>nTimesRecAppOfFunc(f, n-1)(f(i))
 
+  //nTimesRecAppOfFunc((i:Int)=>i+1),2) =>
+  //((i:Int)=>nTimesRecAppOfFunc(f, 1)(f(i)))((i:Int)=>i+1)(2) =>
+  //((i:Int)=>((i:Int)=>nTimesRecAppOfFunc(f, 0)(f(i)))(f, 1)(f(i)))((i:Int)=>i+1)(2) =>
+  //((i:Int)=>((i:Int)=>((i:Int)=>i)(f(i)))(f, 1)(f(i)))((i:Int)=>i+1)(2) =>
+  //((i:Int)=>((i:Int)=>((i:Int)=>i)(f(i)))(f, 1)(f(i)))((i:Int)=>i+1)(2)(5)
+  //(((i:Int)=>((i:Int)=>i)(f(i)))(f, 1)(f(5)))((i:Int)=>i+1)(2)
+
   //infiniteRecAppOfFunc(_f) => (i:Int)=>infiniteRecAppOfFunc(_f)(_f(i)) =>
   // (i:Int)=>((i:Int)=>((i:Int)=>((i:Int)=>infiniteRecAppOfFunc(f)(f(i)))(f)(f(i)))(f)(f(i)))(_f)(_f(i))
   @main def runInvokeFunctionNTimes =
@@ -35,5 +42,5 @@ object InvokeFunctionNTimes:
     println(ff(5))
     println(fff(5))
     println(infiniteRecAppOfFunc(_f))
-//    println(infiniteRecAppOfFunc(_f)(5))
+//    println(infiniteRecAppOfFunc(_f)(5)) //=> 5 5
     println(nTimesRecAppOfFunc(_f,10)(5))

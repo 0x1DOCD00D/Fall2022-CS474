@@ -11,6 +11,15 @@ package scala
  */
 
 object LazyStuff:
+  val x = 5
+  val lx = ()=>5
+  val lcx = ()=>{
+    val x = 10
+    println(x)
+  }
+  println(x)
+  println(lx)
+
   val lst = List("Ridhu", "Punit", 123)
   def recFunc(l:List[Any]): Unit =
     l match
@@ -22,6 +31,6 @@ object LazyStuff:
     i #:: createInfiniteList(i+1)
 
   @main def runMain_LazyStuff(): Unit =
-    println(createInfiniteList(0).take(20).toList)
-//    println(recFunc(lst))
+    println(createInfiniteList(0).take(3).toList)
+    println(recFunc(lst))
 

@@ -8,17 +8,11 @@ package javaCode;/*
  *
  */
 
-public class FinalExam1<T extends Number> {
-    protected T y;
-    public FinalExam1(T x){  y = x;  f();  }
-    void f () {System.out.println("Super = " + String.valueOf(y));}
-    static class B extends FinalExam1<Integer> {
-        protected String y = "I loove Scala!";
-        public B(Integer x){ super(x); y = x.toString(); f();}
-        void f () {System.out.println("Derived = " + y);}
-    }
-               
+class LambdaTest<T extends String> {
+    @FunctionalInterface interface CS474Runnable {
+        public abstract void run(); }
     public static void main(String[] args) {
-        FinalExam1<Integer> o = new FinalExam1.B (3_141);
-    }
-}
+        new LambdaTest<String>().runnable("CS474");  }
+    CS474Runnable runnable(T s) {
+        T var = s;
+        return () -> {System.out.println(var); }; }}

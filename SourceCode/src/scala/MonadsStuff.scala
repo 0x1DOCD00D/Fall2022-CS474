@@ -48,7 +48,7 @@ object MonadsStuff:
       def flatMap
 */
 
-    IOMonad474(()=>{StdIn.readInt()}).flatMap
+//    IOMonad474(()=>{StdIn.readInt()}).flatMap
     val lambda: String => List[Int] = (i:String)=> List(i.length)
     val lambda1: Int => List[Boolean] = (i:Int)=> List(i%2==0)
     val x = List("Koko").flatMap(lambda) == lambda("Koko")

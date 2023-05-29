@@ -8,27 +8,19 @@ package javaCode;/*
  *
  */
 
-public class PlayWithInterfaces {
-    interface P {
-        default void g(){
-            System.out.println("default");
-        }
-        P f();
-    }
-    abstract class C implements P {
-        @Override
-        public void g(){
-            System.out.println("C::default");
-        }
+import java.sql.SQLException;
+
+public class Mmm {
+    private void throwIt( final Exception t ) throws SQLException {
+        throw (SQLException)t;
     }
 
-    class D extends C{
-        @Override
-        public D f() {
-            return new D();
-        }
-    }
     public static void main(String[] args) {
-        new PlayWithInterfaces().new D().f().g();
+        try {
+//            RuntimeException ex = (RuntimeException)(new SQLException());
+            new Mmm().throwIt(new SQLException());
+        } catch(final SQLException ex){
+
+            ex.printStackTrace();        }
     }
 }

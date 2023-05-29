@@ -8,23 +8,20 @@ package javaCode;/*
  *
  */
 
-public class WierdClassComposition {
+public interface WierdClassComposition {
     static public int y = 1;
-    public WierdClassComposition(){  y = 3;  justPrintIt();  }
-    void justPrintIt() {System.out.println("Base: " + String.valueOf(y));}
-    static {
-        y = 2;
-    }
-    public static class Derived extends WierdClassComposition {
-        int y = 3;
-        {
-            y = 4;
+    default void WierdClassComposition(){  justPrintIt();  }
+    void justPrintIt();// {System.out.println("Base: " + String.valueOf(y));}
+    public static class Derived implements WierdClassComposition {
+        static public int y = 3;
+        static {
+            y = 5;
         }
         public Derived(){ justPrintIt(); }
-        void justPrintIt() {System.out.println("Derived " + String.valueOf(y));}
+        public void justPrintIt() {System.out.println("Derived " + String.valueOf(y));}
     }
     public static void main(String[] args) {
-        WierdClassComposition.Derived o = new WierdClassComposition.Derived();
+        WierdClassComposition o = new WierdClassComposition.Derived();
         System.out.println(o.y);
     }
 }

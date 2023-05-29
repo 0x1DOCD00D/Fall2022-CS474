@@ -30,3 +30,4 @@ object Continuation:
     } yield x + 1
 
     println(reset(ctx)) // => 10
+    println(reset(ctx)) // => 10

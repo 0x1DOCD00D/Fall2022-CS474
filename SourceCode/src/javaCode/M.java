@@ -16,14 +16,11 @@ public class M<T extends Exception> {
     }
 
     public static void main(String[] args) {
-        try {
+//        try {
 //            RuntimeException ex = (RuntimeException)(new SQLException());
-            new M<RuntimeException>().throwIt(new SQLException());
+//            new M<Exception>().throwIt(new SQLException());
 
-        } catch(final RuntimeException ex){
-
-            ex.printStackTrace();
-        }
+//        } catch(final RuntimeException ex){ ex.printStackTrace();     }
     }
 }
 

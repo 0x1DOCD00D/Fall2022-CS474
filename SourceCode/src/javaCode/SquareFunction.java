@@ -8,27 +8,21 @@ package javaCode;/*
  *
  */
 
-public class PlayWithInterfaces {
-    interface P {
-        default void g(){
-            System.out.println("default");
-        }
-        P f();
-    }
-    abstract class C implements P {
-        @Override
-        public void g(){
-            System.out.println("C::default");
-        }
+public class SquareFunction {
+    interface ComputeSquareOfSomeInteger {
+        int square(int x);
     }
 
-    class D extends C{
-        @Override
-        public D f() {
-            return new D();
-        }
-    }
     public static void main(String[] args) {
-        new PlayWithInterfaces().new D().f().g();
+        int square = new ComputeSquareOfSomeInteger(){
+            @Override
+            public int square(int x) {
+                return x*x;
+            }
+        }.square(6);
+        System.out.println(square);
+
+        ComputeSquareOfSomeInteger sqFunction = (int x)->x*x;
+        System.out.println(sqFunction.square(6));
     }
 }

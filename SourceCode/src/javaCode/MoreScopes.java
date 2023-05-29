@@ -8,27 +8,21 @@ package javaCode;/*
  *
  */
 
-public class PlayWithInterfaces {
-    interface P {
-        default void g(){
-            System.out.println("default");
-        }
-        P f();
+public class MoreScopes {
+    static {
+        VALUE = 10;//line 3
     }
-    abstract class C implements P {
-        @Override
-        public void g(){
-            System.out.println("C::default");
-        }
+    public MoreScopes(int x) {
+        VALUE = x;
     }
+    static {
+        VALUE = 30;//line 7
+        { VALUE = 1;}
+    }
+    public static int VALUE = 15;
 
-    class D extends C{
-        @Override
-        public D f() {
-            return new D();
-        }
-    }
     public static void main(String[] args) {
-        new PlayWithInterfaces().new D().f().g();
+        new MoreScopes(5); //line 10
+        System.out.println(MoreScopes.VALUE);
     }
 }

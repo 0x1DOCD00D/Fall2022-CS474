@@ -8,27 +8,25 @@ package javaCode;/*
  *
  */
 
-public class PlayWithInterfaces {
-    interface P {
-        default void g(){
-            System.out.println("default");
-        }
-        P f();
+class P{}
+class C1 extends P{}
+class C2 extends P{}
+
+class StrangeBehavior<T extends P>{
+    public P m(P o){
+        return (T)o;
     }
-    abstract class C implements P {
-        @Override
-        public void g(){
-            System.out.println("C::default");
-        }
+}
+public class ExpectedBehavior {
+    public P m(P o){
+        return (C1)o;
     }
 
-    class D extends C{
-        @Override
-        public D f() {
-            return new D();
-        }
-    }
     public static void main(String[] args) {
-        new PlayWithInterfaces().new D().f().g();
+        P o = new StrangeBehavior<C1>().m(new C2());
+
+//        P o = new ExpectedBehavior().m(new C2());
+//        P o = new ExpectedBehavior().m(new C1());
+        System.out.println(o.getClass().getName());
     }
 }

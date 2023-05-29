@@ -12,12 +12,16 @@ interface I1{
     int age = 1;
 }
 
+interface I3{
+    int age = 3;
+}
+
 interface I2 extends I1{
     int age1 = 2;
     void f();
 }
 
-class C12 implements I1, I2{
+class C12 implements I2, I1{
     @Override
     public void f() {
         System.out.println("f in c12");

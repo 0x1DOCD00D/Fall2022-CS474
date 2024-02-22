@@ -18,7 +18,7 @@ def IF(condition: => Boolean, thenClause: => Boolean, elseClause: => Boolean): B
   if condition then thenClause else elseClause
 end IF
 ```
-Essentially, all parameters are passed lazily to the construct **IF** and they are not evaluated strictly, i.e., they are evaluated only if used inside the body of **IF**. That is, if the condition is evaluated to ***true*** then only ***thenClause*** is evaluated and ***elseClause*** is not. You may also try to implement ***while-do*** loops even though it is not required for his homework.
+Essentially, all parameters are passed lazily to the construct **IF** and they are not evaluated strictly, i.e., they are evaluated only if used inside the body of **IF**. That is, if the condition is evaluated to ***true*** then only ***thenClause*** is evaluated and ***elseClause*** is not. You may also try to implement ***while-do*** loops even though it is not required for this homework.
 
 Next, you will implement exception handling where you will introduce a construct for declaring exception classes, a construct for throwing exceptions and a construct for catching exceptions similar to ***try...catch(...)...*** constructs in many OO programming languages. Consider the following example of using your language with respect to the branching expression and exception handling. Please note that it is an example and not a strict guide to your implementation. You are free to experiment to choose signatures of the data types that you like as long as you explain your rationale in your documentation.
 ```scala
